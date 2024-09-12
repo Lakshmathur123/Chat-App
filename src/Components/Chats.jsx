@@ -5,7 +5,7 @@ const Chats = () => {
     <div className='chats'>
       
       <div className='userChat'>
-        <img src="/user person.png" alt="user" />
+        <img src="/images/user person.png" alt="user" />
         <div className='userChatInfo'>
           <span>Laksh</span>
           <p>Hello</p>
@@ -13,7 +13,7 @@ const Chats = () => {
       </div>
 
       <div className='userChat'>
-        <img src="/user person.png" alt="user" />
+        <img src="/images/user person.png" alt="user" />
         <div className='userChatInfo'>
           <span>Laksh</span>
           <p>Hello</p>
@@ -21,7 +21,7 @@ const Chats = () => {
       </div>
 
       <div className='userChat'>
-        <img src="/user person.png" alt="user" />
+        <img src="/images/user person.png" alt="user" />
         <div className='userChatInfo'>
           <span>Laksh</span>
           <p>Hello</p>
@@ -29,7 +29,7 @@ const Chats = () => {
       </div>
 
       <div className='userChat'>
-        <img src="/user person.png" alt="user" />
+        <img src="/images/user person.png" alt="user" />
         <div className='userChatInfo'>
           <span>Laksh</span>
           <p>Hello</p>
