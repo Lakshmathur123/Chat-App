@@ -18,8 +18,8 @@ export default function App() {
   <BrowserRouter>
    <Routes>
     <Route path='/' element={isAuthenticated ? (<Home />) : (<Navigate to="/login" replace />)}/>
-    <Route path="login" element={<Login onLogin={handleLogin} />} />
-        <Route path="register" element={<Register onRegister={handleLogin} />} />
+    <Route path="/login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/register" element={<Register onRegister={handleLogin} />} />
     
   </Routes>
     
