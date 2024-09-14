@@ -10,6 +10,7 @@ const Chats = () => {
           <span>Laksh</span>
           <p>Hello</p>
         </div>
+        <p className='lastOnline'>10:00 AM</p>
       </div>
 
       <div className='userChat'>
@@ -18,6 +19,7 @@ const Chats = () => {
           <span>Laksh</span>
           <p>Hello</p>
         </div>
+        <p className='lastOnline'>10:00 AM</p>
       </div>
 
       <div className='userChat'>
@@ -26,6 +28,7 @@ const Chats = () => {
           <span>Laksh</span>
           <p>Hello</p>
         </div>
+        <p className='lastOnline'>10:00 AM</p>
       </div>
 
       <div className='userChat'>
@@ -34,6 +37,7 @@ const Chats = () => {
           <span>Laksh</span>
           <p>Hello</p>
         </div>
+        <p className='lastOnline'>10:00 AM</p>
       </div>
     </div>
   )
