@@ -10,7 +10,7 @@ const Message = () => {
 
     <div className='messageContent'>
       <p>Hello</p>
-      <img src="/images/user person.png" alt="person" />
+     
     </div>
     </div>
   )
