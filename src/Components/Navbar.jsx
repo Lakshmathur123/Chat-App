@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
 
@@ -14,8 +14,13 @@ const toggleDropdown = () => {
     <div className='navbar'>
       <span className='logo'>Virtual Chat</span>
       <div className='user'>
-        <img src="/images/user person.png" alt="user image" />
+       <a href="/profile"> <img src="/images/user person.png" alt="user image" /> </a>
         <span>Laksh</span>
+
+        <div className='chatIcons'>
+        <a href="#"> <FontAwesomeIcon icon={faUserPlus} /> </a> 
+
+        </div>
         
         <div className='moreOptions'>
         <a href="#" onClick={toggleDropdown}> <FontAwesomeIcon icon={faEllipsisV} /> </a>

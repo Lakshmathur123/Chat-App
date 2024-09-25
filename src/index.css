@@ -148,6 +148,8 @@ body {
   position: relative;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid lightslategrey;
+  padding: 7px;
 }
 
 .searchForm input {
@@ -186,6 +188,12 @@ body {
 
 .userChat:hover {
   background-color: #2f2d52;
+}
+
+.userChatInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .userChatInfo span {
@@ -384,4 +392,243 @@ body {
 
 .moreIcon:hover .dropdownMenu {
   display: block;
+}
+
+
+
+.profile-creation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(images/achraf-nekker-Ss5p2XkQ7B4-unsplash.jpg);
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: #ccc;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease;
+  
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+}
+
+
+.profile-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 24px;
+ 
+}
+
+
+.photo-upload {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.upload-placeholder {
+  width: 130px;
+  height: 130px;
+  border: 2px dashed #aaa;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.upload-placeholder span {
+  font-size: 14px;
+  color: #666;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+
+
+.profile-pic-preview {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  cursor: pointer;
+}
+
+.photo-upload:hover .upload-placeholder {
+  border-color: #007bff;
+  background-color: #f8faff;
+}
+
+.photo-input {
+  display: none;
+}
+
+
+.input-group {
+  margin-bottom: 25px;
+  position: relative;
+  margin-left: -15px;
+  margin-right: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input-group input:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+  outline: none;
+}
+
+.input-group input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #aaa;
+}
+
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  background: #ffffff;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #888;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  pointer-events: none;
+}
+
+.input-group input:not(:placeholder-shown) + label,
+.input-group input:focus + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #007bff;
+  background-color: #ffffff;
+  padding: 0 5px;
+}
+
+
+.submit-button {
+  padding: 14px;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.submit-button:active {
+  background-color: #004080;
+}
+
+
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 40px;
+  }
+
+  .profile-pic-preview,
+  .upload-placeholder {
+    width: 110px;
+    height: 110px;
+  }
+
+  .input-group input {
+    font-size: 14px;
+  }
+}
+
+/* Animation for form appearance */
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-card {
+  animation: formFadeIn 0.6s ease-out;
+}
+
+.chatIcons a {
+  color: black;
+  margin-left: 10px;
+}
+
+.cameraModal {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background-color: rgba(0 , 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cameraModal video {
+  width: 100%;
+  max-width: 400%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cameraModal button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cameraModal button:hover {
+  background-color: #ff1a1a;
 }
