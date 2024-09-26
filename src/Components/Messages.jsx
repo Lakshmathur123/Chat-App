@@ -9,14 +9,14 @@ const messagesData = [
   {id: 4, text: 'Just good tho', sender: 'other', timestamp: '10:03 AM'},
 ]
 
-const Messages = () => {
+const Messages = ({ messages }) => {
   return (
     <div className='messages'>
-        {messagesData.map((message) => (
-          <Message key={message.id} text={message.text} sender={message.sender} timestamp={message.timestamp} />
-        ))}
+      {messages.map((msg, index) => (
+        <Message key={index} message={msg} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default Messages;

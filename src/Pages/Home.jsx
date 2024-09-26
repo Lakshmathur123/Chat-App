@@ -1,30 +1,20 @@
-import React from 'react'
+import React from 'react';
 import SlideBar from '../Components/SlideBar';
 import Chat from '../Components/Chat';
 
-const Home = () => {
-
-  const [selectedChat, setSelectedChat] = React.useState(null);
-
-  const handleChatClick = (chat) => {
-    setSelectedChat(chat);
-  }
-
-
+const Home = ({ selectedChat, onChatClick }) => {
   return (
     <div className='home'>
-        <div className='container'>
-
-        <SlideBar onChatClick={handleChatClick}/>
+      <div className='container'>
+        <SlideBar onChatClick={onChatClick} />
         {selectedChat ? (
-          <Chat chat={selectedChat} /> 
+          <Chat selectedChat={selectedChat} />
         ) : (
           <div className='noChatSelected'>
-            <p>Select a chat to start messaging</p>
+            <p>Please select a chat to start messaging.</p>
           </div>
         )}
-        </div>
-        
+      </div>
     </div>
   );
 };

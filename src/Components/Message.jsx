@@ -1,18 +1,19 @@
 import React from 'react'
 
-const Message = ({text, sender, timestamp}) => {
+
+const Message = ({ message }) => {
   return (
-    <div className={`message ${sender === 'user' ? 'owner' : ''}`}>
+    <div className='message'>
       <div className='messageInfo'>
         <img src="/images/user person.png" alt="person" />
-        <span>{timestamp}</span>
+        <span>{message.time}</span>
       </div>
 
       <div className='messageContent'>
-        <p>{text}</p>
+        <p>{message.text}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Message;

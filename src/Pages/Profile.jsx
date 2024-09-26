@@ -67,8 +67,7 @@ alert('Profile Creation Successfully')
                 <div className='input-group'>
                     <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} placeholder='Enter Your Country' required />
                 </div>
-
-                <button type='submit' className='submit-button'>Create Profile</button>
+                                <button type='submit' className='submit-button'>Create Profile</button>
 
         </form>
     </div>
