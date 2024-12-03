@@ -1,4 +1,4 @@
- // Import required modules
+
 const express = require('express');
 const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
@@ -28,7 +28,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-// User login
+
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -46,7 +46,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Fetch messages
 app.get('/messages', async (req, res) => {
   try {
     const messages = await pool.query('SELECT * FROM messages ORDER BY created_at DESC');
@@ -72,8 +71,12 @@ app.post('/messages', async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
 
 

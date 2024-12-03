@@ -1,11 +1,13 @@
-import * as React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import * as React from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase-config"; // Adjust the path as needed
 
-const Register = ({ onRegister }) => {
+const Register = () => {
   const [formData, setFormData] = React.useState({
-    virtualName: '',
-    email: '',
-    password: '',
+    virtualName: "",
+    email: "",
+    password: "",
   });
   const navigate = useNavigate();
 
@@ -14,11 +16,22 @@ const Register = ({ onRegister }) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    onRegister();  // Trigger registration
-    navigate('/home');  // Navigate to Home after successful registration
+    try {
+      // Firebase function to create a new user
+      await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      alert("Successfully registered! Please login to continue."); // Success popup
+      navigate("/login"); // Redirect to login page
+    } catch (error) {
+      // Handle errors like "email already in use"
+      if (error.code === "auth/email-already-in-use") {
+        alert("This email is already registered. Please use a different email or log in.");
+      } else {
+        alert("Registration failed. Please try again.");
+        console.error("Error during registration:", error);
+      }
+    }
   };
 
   return (
@@ -33,6 +46,7 @@ const Register = ({ onRegister }) => {
             placeholder="Enter Your Virtual Name"
             value={formData.virtualName}
             onChange={handleChange}
+            required
           />
           <input
             type="email"
@@ -40,6 +54,7 @@ const Register = ({ onRegister }) => {
             placeholder="Enter Your Email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
           <input
             type="password"
@@ -47,11 +62,12 @@ const Register = ({ onRegister }) => {
             placeholder="Enter Your Password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
           <button type="submit">Sign Up</button>
         </form>
         <p className="user">
-          Already a User? <Link to="/login">Login</Link>  {/* Use Link for navigation */}
+          Already a User? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>

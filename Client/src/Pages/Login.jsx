@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { auth } from '../firebase-config';
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email === 'laksh@123gmail.com' && password === '12345') {
-      onLogin();  // Trigger authentication
-      navigate('/home');  // Navigate to Home after successful login
-    } else {
-      alert('Check the Login details again!');
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      onLogin(); // Trigger authentication callback
+      navigate('/home'); // Navigate to Home page
+    } catch (error) {
+      alert('Login failed. Please check your credentials!');
+      console.error('Error during login:', error);
     }
   };
 
@@ -37,7 +41,7 @@ const Login = ({ onLogin }) => {
           <button type="submit">Sign In</button>
         </form>
         <p className="user">
-          Don't have an account? <Link to="/register">Register</Link>  {/* Use Link for navigation */}
+          Don't have an account? <Link to="/register">Register</Link>
         </p>
       </div>
     </div>
